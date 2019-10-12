@@ -9,6 +9,15 @@ export const actions = {
             .catch((err)=>{
               console.log('error', err);
             });
-        }
+        },
+        fetchBillets({commit}){
+          axios.get('http://localhost:80/admin-system/api/posts')
+          .then((response)=>{
+          commit('fetchBillets', response.data);
+          })
+          .catch((err)=>{
+            console.log('error', err);
+          });
+      }
 
 }

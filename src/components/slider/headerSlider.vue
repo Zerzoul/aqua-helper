@@ -1,9 +1,9 @@
 <template>
 <v-carousel>
     <header-slider-item 
-        v-for="(image, index) in getImages()"
-        :key="index"
-        :image="image"
+    v-for="(image, index) in getImages()"
+    :key="index"
+    :image="image"
     />
 </v-carousel>
 </template>
@@ -14,13 +14,9 @@ export default {
     components:{
         HeaderSliderItem,
     },
-    data: () => ({
-        images: [],
-    }),
     methods:{
          getImages(){
             const imagesUrl = this.$store.getters.getImageName;
-            console.log(imagesUrl)
             return imagesUrl;
         }
     },

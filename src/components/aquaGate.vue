@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid pa-0>
+  <v-container fluid pa-0 accent>
     <v-layout>
       <header-navigation/>
     </v-layout>
@@ -7,9 +7,7 @@
       <header-slider/>
     </v-layout>
     <v-layout>
-     <v-flex v-for="articles in getTheCount" :key="articles.id">
-       <div>{{ articles.commun_name }}</div>
-       </v-flex>
+     <content-wrapper />
     </v-layout>
   </v-container>
 </template>
@@ -17,22 +15,28 @@
 <script>
 import HeaderNavigation from "./template/headerNavigation";
 import HeaderSlider from "./slider/headerSlider";
+import ContentWrapper from "./content/contentWrapper";
 export default {
   name: 'aquagate',
   components:{
     HeaderNavigation,
     HeaderSlider,
+    ContentWrapper
   },
   data: () => ({
     itemHasBeenLoaded: false,
   }),
   async created(){
     await this.fetchFishes();
+    await this.fetchBillets();
     this.itemHasBeenLoaded = true;
   },
   methods:{
     fetchFishes(){
       this.$store.dispatch("fetchFishes");  
+    },
+    fetchBillets(){
+      this.$store.dispatch("fetchBillets");  
     }
   },
   computed:{

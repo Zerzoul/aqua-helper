@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content >
       <aqua-gate/>
     </v-content>
   </v-app>
