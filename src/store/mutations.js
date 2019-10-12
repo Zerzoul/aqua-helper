@@ -1,6 +1,5 @@
 export const mutations = {
-    fetchArticles(state, data){
-        console.log(state);
-        state.articles = data;
+    fetchFishes(state, data){
+        state.fishesListe = data;
     }
 }
