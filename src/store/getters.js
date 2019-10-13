@@ -4,8 +4,15 @@ export const getters = {
         return images;
     },
     getBillets(state){
-        console.log(state.billets);
         const billets = state.billets;
         return billets;
+    },
+    getSelectedBillet: (state) => (id) => {
+        const thisBillet = state.billets.map(billet => {
+            if(billet.id === id){
+                return billet;
+            }
+        });
+        return thisBillet;
     }
 }

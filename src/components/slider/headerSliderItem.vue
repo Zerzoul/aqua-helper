@@ -12,7 +12,6 @@ export default {
     }),
     computed:{
         getUrl(){
-            console.log(this.image);
             const url =  this.url + this.image;
             return url;
         }

@@ -7,7 +7,7 @@
       <header-slider/>
     </v-layout>
     <v-layout>
-     <content-wrapper />
+     <router-view v-if="itemHasBeenLoaded"/>
     </v-layout>
   </v-container>
 </template>
@@ -15,13 +15,11 @@
 <script>
 import HeaderNavigation from "./template/headerNavigation";
 import HeaderSlider from "./slider/headerSlider";
-import ContentWrapper from "./content/contentWrapper";
 export default {
   name: 'aquagate',
   components:{
     HeaderNavigation,
-    HeaderSlider,
-    ContentWrapper
+    HeaderSlider
   },
   data: () => ({
     itemHasBeenLoaded: false,
@@ -48,7 +46,6 @@ export default {
 </script>
 <style>
 p, h1 {
-  color: white !important;
 background: none !important;
 }
 </style>

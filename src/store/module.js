@@ -8,7 +8,7 @@ import {getters} from './getters';
 import {mutations} from './mutations';
 import {actions} from './actions';
 
-export const store = new Vuex.Store({
+export default new Vuex.Store({
     namespaced: true,
     state,
     getters,

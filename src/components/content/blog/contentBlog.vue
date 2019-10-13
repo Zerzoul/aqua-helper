@@ -2,7 +2,7 @@
   <v-container>
     <v-layout>
       <v-flex>
-        <content-billet-article
+        <content-blog-billets
         v-for="(billet, index) in getBillet()"
         :key="index"
         :billet="billet"/>
@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import ContentBilletArticle from "./contentBilletArticle";
+import ContentBlogBillets from "./contentBlogBillets";
 export default {
-  name: "ContentWrapper",
+  name: "ContentBlog",
   components: {
-    ContentBilletArticle
+    ContentBlogBillets
   },
   methods: {
     getBillet() {

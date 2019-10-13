@@ -3,13 +3,13 @@
 <v-toolbar-title>Logo aqua-helper</v-toolbar-title>
 <div class="flex-grow-1"></div>
      <v-btn text>
-       Blog
+       <router-link to="/" >Blog</router-link>
       </v-btn>
      <v-btn text>
-       AquaFish
+       <router-link to="/aquafish" >AquaFish</router-link>
       </v-btn>
       <v-btn text>
-       Connexion
+       <router-link to="/connexion" >Connexion</router-link>
       </v-btn>
 </v-app-bar>
 </template>
