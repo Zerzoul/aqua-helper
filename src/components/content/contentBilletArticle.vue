@@ -1,15 +1,27 @@
 <template>
-  <v-card flat dark height="250" min-width="400" class="mx-auto d-flex flex-column justify-space-around">
-    <v-img scr="https://www.aquarium-tregastel.com/fileadmin/_processed_/csm_petitefille_dos_55ddefd06a.jpg" height="200px">
-      <div class="content-billet-wrapper">
-        <v-card-title>{{billet.title}}</v-card-title>
-        <v-card-text>
-          <div v-html="billetContent" class="content-truncate"></div>
-        </v-card-text>
-        <v-card-actions class="justify-end">
-          <v-btn text>Lire l'article</v-btn>
-        </v-card-actions>
-      </div>
+  <v-card
+    flat
+    dark
+    height="250"
+    min-width="400"
+    class="my-5 d-flex flex-column justify-space-around"
+  >
+    <v-img
+      class="white--text align-center"
+      height="250px"
+      :src="image"
+    >
+    <div class="content-billet-wrapper">
+      <v-card-title>{{billet.title}}</v-card-title>
+      <v-card-text>
+        <div>
+          <span v-html="billetContent" ></span>
+        </div>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn text>Lire l'article</v-btn>
+      </v-card-actions>
+    </div>
     </v-img>
   </v-card>
 </template>
@@ -18,9 +30,14 @@
 export default {
   name: "ContentBilletArticle",
   props: ["billet"],
+  data:() => ({
+    image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+  }),
   computed: {
     billetContent() {
-      const subStr = this.billet.content.substring(0, 150);
+      const breakpoint = this.$vuetify.breakpoint;
+      const subLength = breakpoint.smAndDown ? 100 : 250;
+      const subStr = this.billet.content.substring(0, subLength);
       return subStr + "...";
     }
   }
@@ -33,8 +50,5 @@ export default {
   width: 50%;
   height: 100%;
 }
-.content-truncate {
-  height: 60px;
-  text-overflow: ellipsis;
-}
+
 </style>

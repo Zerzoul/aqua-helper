@@ -46,3 +46,9 @@ export default {
   }
 };
 </script>
+<style>
+p, h1 {
+  color: white !important;
+background: none !important;
+}
+</style>
