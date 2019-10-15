@@ -39,7 +39,7 @@ export default {
       return subStr + "...";
     },
     setTheUrl(){
-      return this.billet.id;
+      return "blog/" +this.billet.id;
     }
   }
 };
