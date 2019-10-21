@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const actions = {
          fetchFishes({commit}){
-            axios.get('http://localhost:80/admin-system/api/fishlist')
+            axios.get('http://zerzoul.com/admin-system/api/fishlist')
             .then(async (response)=>{
             await commit('fetchFishes', response.data);
             })
@@ -11,7 +11,7 @@ export const actions = {
             });
         },
          fetchBillets({commit}){
-          axios.get('http://localhost:80/admin-system/api/posts')
+          axios.get('http://zerzoul.com/admin-system/api/posts')
           .then(async (response)=>{
           await commit('fetchBillets', response.data);
           })

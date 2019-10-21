@@ -3,14 +3,14 @@ export const getters = {
         const images = state.fishesListe.map( fish => fish.file_id );
         return images;
     },
-    getBillets(state){
-        const billets = state.billets;
-        return billets;
-    },
-    getFishes: state => {
-        return state.fishes;
-        return fishes;
-    },
+    // getBillets(state){
+    //     const billets = state.billets;
+    //     return billets;
+    // },
+    // getFishes: state => {
+    //     return state.fishes;
+    //     return fishes;
+    // },
     getSelectedBillet: (state) => (id) => {
         console.log(id,state.billets);
         let thisBillet;

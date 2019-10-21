@@ -2,7 +2,7 @@
   <v-col cols>
     <v-card :width="200
  ">
-      <v-img :src="imageFish" aspect-ratio="1.7" contain>
+      <v-img :src="imageFish" aspect-ratio="1.7" contain class="align-end">
         <v-row align-content="end">
           <v-col>{{fish.commun_name}}</v-col>
         </v-row>
