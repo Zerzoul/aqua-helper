@@ -7,13 +7,11 @@ export default {
     name: 'HeaderSliderItem',
     props: ['image'],
 
-    data:() => ({
-         url: 'http://localhost:80/admin-system/api/image_entity/',
-    }),
     computed:{
         getUrl(){
-            const url =  this.url + this.image;
-            return url;
+            const url = this.$store.state.url_image;
+            console.log(this.image);
+            return url + this.image;
         }
     }
 };

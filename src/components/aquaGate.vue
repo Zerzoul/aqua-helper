@@ -1,14 +1,14 @@
 <template>
-  <v-container fluid pa-0 accent>
-    <v-layout>
-      <header-navigation/>
-    </v-layout>
-    <v-layout>
-      <header-slider/>
-    </v-layout>
-    <v-layout>
-     <router-view v-if="itemHasBeenLoaded"/>
-    </v-layout>
+  <v-container fluid pa-0 background>
+    <v-row>
+      <header-navigation />
+    </v-row>
+    <v-row>
+      <header-slider />
+    </v-row>
+    <v-container :fluid="removesViewport" class="px-1">
+        <router-view v-if="itemHasBeenLoaded" />
+    </v-container>
   </v-container>
 </template>
 
@@ -16,36 +16,45 @@
 import HeaderNavigation from "./template/headerNavigation";
 import HeaderSlider from "./slider/headerSlider";
 export default {
-  name: 'aquagate',
-  components:{
+  name: "aquagate",
+  components: {
     HeaderNavigation,
     HeaderSlider
   },
   data: () => ({
-    itemHasBeenLoaded: false,
+    itemHasBeenLoaded: false
   }),
-  async created(){
+  async created() {
     await this.fetchFishes();
     await this.fetchBillets();
     this.itemHasBeenLoaded = true;
   },
-  methods:{
-    fetchFishes(){
-      this.$store.dispatch("fetchFishes");  
+  methods: {
+    fetchFishes() {
+      this.$store.dispatch("fetchFishes");
     },
-    fetchBillets(){
-      this.$store.dispatch("fetchBillets");  
+    fetchBillets() {
+      this.$store.dispatch("fetchBillets");
     }
   },
-  computed:{
-    getTheCount(){
+  computed: {
+    getTheCount() {
       return this.$store.state.articles;
+    },
+    removesViewport(){
+      return this.$vuetify.breakpoint.smAndDown ? true : false;
     }
   }
 };
 </script>
 <style>
-p, h1 {
-background: none !important;
+p,
+h1 {
+  background: none !important;
+}
+li {
+  list-style-type: none;
+  color: #fff;
+  font-weight: 500;
 }
 </style>

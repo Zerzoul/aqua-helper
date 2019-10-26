@@ -15,6 +15,7 @@ export default new Vuetify({
         primary: colors.red.darken1, // #E53935
         secondary: colors.red.lighten4, // #FFCDD2
         accent: colors.blueGrey.darken4, // #263238
+        background: colors.blue.lighten5, // #E3F2FD
       },
     },
   },

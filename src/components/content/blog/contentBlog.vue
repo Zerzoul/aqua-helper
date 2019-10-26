@@ -1,30 +1,24 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-flex>
-        <content-blog-billets
-        v-for="(billet, index) in getBillet()"
-        :key="index"
-        :billet="billet"/>
-      </v-flex>
-      <v-flex></v-flex>
-    </v-layout>
-  </v-container>
+  <v-row justify="center">
+    <v-col md="10">
+      <content-blog-articles v-for="(billet, index) in getBillet()" :key="index" :billet="billet" @imageLoaded="imageLoaded"/>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-import ContentBlogBillets from "./contentBlogBillets";
+import ContentBlogArticles from "./contentBlogArticles";
 export default {
   name: "ContentBlog",
   components: {
-    ContentBlogBillets
+    ContentBlogArticles
   },
+
   methods: {
     getBillet() {
       const billets = this.$store.state.billets;
-      console.log(billets);
       return billets;
-    }
+    },
   }
 };
 </script>

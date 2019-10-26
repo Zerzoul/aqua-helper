@@ -8,6 +8,7 @@ import aquaFish from '../components/content/aquaFish/aquaFishWrapper.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
+    mode: 'history',
     routes:[
         {
             path: "/",

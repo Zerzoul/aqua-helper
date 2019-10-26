@@ -1,5 +1,9 @@
 <template>
-<v-carousel>
+<v-carousel
+    hide-delimiters
+    cycle
+    :interval="2000"
+    :height="carouselHeightSizeParams">
     <header-slider-item 
     v-for="(image, index) in getImages()"
     :key="index"
@@ -20,6 +24,11 @@ export default {
             return imagesUrl;
         }
     },
+    computed:{
+        carouselHeightSizeParams(){
+            return this.$vuetify.breakpoint.smAndDown ? 250 : 500;
+        }
+    }
 
     
 };
