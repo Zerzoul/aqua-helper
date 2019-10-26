@@ -5,14 +5,14 @@
         <content-article-billet :billet="getTheArticle" />
         <v-divider />
         <v-row justify="center" class="px-12">
-          <v-col cols-5>
-            <content-article-comment />
+          <v-col cols-7>
+            <content-article-comment v-for="comment in comments" :key="comment.id" :comment="comment"/>
           </v-col>
         </v-row>
         <v-divider />
         <v-row justify="center" class="px-12">
-          <v-col cols-5>
-            <content-article-comment-form />
+          <v-col cols="7">
+            <content-article-comment-form  />
           </v-col>
         </v-row>
       </v-card>
@@ -22,11 +22,13 @@
 
 <script>
 import ContentArticleBillet from "./contentArticleBillet";
+import ContentArticleComment from "./contentArticleComment";
 import ContentArticleCommentForm from "./contentArticleCommentForm";
 export default {
   name: "ContentArticleWrapper",
   components: {
     ContentArticleBillet,
+    ContentArticleComment,
     ContentArticleCommentForm
   },
   props: ["id"],
@@ -36,8 +38,13 @@ export default {
   computed: {
     getTheArticle() {
       const article = this.$store.getters.getSelectedBillet(this.id);
-      console.log(article);
       return article;
+    }
+  },
+  methods:{
+    comments(){
+      const comments = this.$store.getters.getComment(this.id);
+      return comments;
     }
   }
 };

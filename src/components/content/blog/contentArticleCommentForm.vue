@@ -1,16 +1,14 @@
 <template>
   <div>
     <v-row>
-      <v-col>
-        <v-card-title>Laisser un commentaire ?</v-card-title>
-      </v-col>
+      <v-card-title class="px-0">Laisser un commentaire ?</v-card-title>
     </v-row>
     <v-row>
       <v-textarea solo label="Default style" :value="textField"></v-textarea>
     </v-row>
     <v-row>
       <div>
-        <v-btn v-on:click="validationForm()">Submit</v-btn>
+        <v-btn v-on:click="validationForm()">Envoyé</v-btn>
       </div>
     </v-row>
   </div>

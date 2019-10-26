@@ -27,6 +27,7 @@ export default {
   async created() {
     await this.fetchFishes();
     await this.fetchBillets();
+    await this.fetchComments();
     this.itemHasBeenLoaded = true;
   },
   methods: {
@@ -35,8 +36,10 @@ export default {
     },
     fetchBillets() {
       this.$store.dispatch("fetchBillets");
-    }
-  },
+    },
+    fetchComments(){
+      this.$store.dispatch("fetchComments");
+    },
   computed: {
     getTheCount() {
       return this.$store.state.articles;
@@ -45,7 +48,8 @@ export default {
       return this.$vuetify.breakpoint.smAndDown ? true : false;
     }
   }
-};
+  }
+}
 </script>
 <style>
 p,

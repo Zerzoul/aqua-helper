@@ -18,6 +18,16 @@ export const actions = {
           .catch((err)=>{
             console.log('error', err);
           });
-      }
+      },
+      fetchComments({commit}){
+        axios.get('http://zerzoul.com/admin-system/api/comments')
+        .then(async (response)=>{
+          console.log('comments', response.data);
+        await commit('fetchComments', response.data);
+        })
+        .catch((err)=>{
+          console.log('error', err);
+        });
+    }
 
 }

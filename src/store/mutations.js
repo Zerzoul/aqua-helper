@@ -4,5 +4,8 @@ export const mutations = {
     },
     fetchBillets(state, data){
         state.billets = data;
+    },
+    fetchComments(state, data){
+        state.comments = data;
     }
 }
