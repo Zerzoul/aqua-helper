@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
     <v-col md="10">
-      <content-blog-articles v-for="(billet, index) in getBillet()" :key="index" :billet="billet" @imageLoaded="imageLoaded"/>
+      <content-blog-articles v-for="(billet, index) in getBillet()" :key="index" :billet="billet"/>
     </v-col>
   </v-row>
 </template>

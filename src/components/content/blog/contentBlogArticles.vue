@@ -11,7 +11,6 @@
         class="white--text align-center"
         :height="responsiveContentBilletHeight"
         :src="getImages"
-        @load="imageLoaded"
       >
         <div :class="contentBilletWrapper">
           <v-card-title class="headline">{{billet.title}}</v-card-title>
@@ -49,8 +48,10 @@ export default {
       return "blog/" + this.billet.id;
     },
     getImages() {
-      const url = this.$store.state.url_image;
-      return url + this.billet.file_id;
+      if(this.billet.file_id){
+        const url = this.$store.state.url_image;
+        return url + this.billet.file_id;
+      }
     },
     contentBilletWrapper() {
       return this.$vuetify.breakpoint.xsOnly
@@ -61,11 +62,6 @@ export default {
       return this.$vuetify.breakpoint.xsOnly ? 100 : 250;
     }
   },
-  methods: {
-    imageLoaded() {
-      this.imageHasBeenLoaded = true;
-    }
-  }
 };
 </script>
 

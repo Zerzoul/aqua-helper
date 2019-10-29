@@ -1,10 +1,11 @@
 <template>
   <div>
+    {{postId}}
     <v-row>
       <v-card-title class="px-0">Laisser un commentaire ?</v-card-title>
     </v-row>
     <v-row>
-      <v-textarea solo label="Default style" :value="textField"></v-textarea>
+      <v-textarea solo clearable :counter="255" :error-messages="errorMessage" v-model="textField"></v-textarea>
     </v-row>
     <v-row>
       <div>
@@ -15,14 +16,47 @@
 </template>
 
 <script>
+import axios from '../../../axios';
 export default {
   name: "ContentArticleCommentForm",
+  props: ["postId"],
   data: () => ({
-    textField: ""
+    textField: null,
+    errorMessage: [],
+    error: false
   }),
-  computed: {
+  methods: {
     validationForm() {
-      console.log(this.textField);
+      const comment = this.textField;
+      if (comment === null) {
+        this.errorMessage.push(
+          "Compléter le champ, pour laisser un commentaire."
+        );
+        return;
+      }
+      if (comment.length > 255) {
+        this.errorMessage.push(
+          "Votre commentaire est trop long. il doit être de moins de 255 caratcère."
+        );
+        return;
+      }
+      this.addThisComment();
+    },
+   async addThisComment() {
+      await axios({
+        method: "POST",
+        url: "/newcom",
+        data: {
+          postId: this.postId,
+          answerPostId: null,
+          author: "zerzoul", // TODO replace by localsession storage.
+          content: this.textField
+        },
+      }).then((response) => {
+           console.log(response);
+        }).catch(err => {
+          console.log("error", err);
+        });
     }
   }
 };

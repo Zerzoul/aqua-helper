@@ -39,7 +39,8 @@ export default {
     },
     fetchComments(){
       this.$store.dispatch("fetchComments");
-    },
+    }
+  },
   computed: {
     getTheCount() {
       return this.$store.state.articles;
@@ -47,7 +48,6 @@ export default {
     removesViewport(){
       return this.$vuetify.breakpoint.smAndDown ? true : false;
     }
-  }
   }
 }
 </script>

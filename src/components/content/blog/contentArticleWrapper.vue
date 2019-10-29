@@ -6,13 +6,13 @@
         <v-divider />
         <v-row justify="center" class="px-12">
           <v-col cols-7>
-            <content-article-comment v-for="comment in comments" :key="comment.id" :comment="comment"/>
+            <content-article-comment v-for="(comment, index) in comments()" :key="index" :comment="comment"/>
           </v-col>
         </v-row>
         <v-divider />
         <v-row justify="center" class="px-12">
           <v-col cols="7">
-            <content-article-comment-form  />
+            <content-article-comment-form :postId="id" />
           </v-col>
         </v-row>
       </v-card>
@@ -44,6 +44,7 @@ export default {
   methods:{
     comments(){
       const comments = this.$store.getters.getComment(this.id);
+      console.log(comments.author);
       return comments;
     }
   }

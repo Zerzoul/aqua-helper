@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-img class="white--text align-end" height="370px" :src="getImage">
-      <v-card-title class="display-1">{{ billet.title }}</v-card-title>
+      <v-card-title class="display-1" >{{ billet.title }}</v-card-title>
     </v-img>
     <v-card-text>
       <div>
