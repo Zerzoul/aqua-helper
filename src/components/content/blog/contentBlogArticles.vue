@@ -20,9 +20,11 @@
             </div>
           </v-card-text>
           <v-card-actions>
-            <v-btn>
-              <router-link tag="button" :to="setTheUrl">Lire l'article</router-link>
-            </v-btn>
+              <router-link tag="button" :to="setTheUrl">
+                <v-btn>
+                Lire l'article
+                </v-btn>
+              </router-link>
           </v-card-actions>
         </div>
       </v-img>

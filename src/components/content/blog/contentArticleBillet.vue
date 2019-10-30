@@ -1,7 +1,12 @@
 <template>
   <div>
     <v-img class="white--text align-end" height="370px" :src="getImage">
-      <v-card-title class="display-1" >{{ billet.title }}</v-card-title>
+      <v-card-title class="accent" >
+       <v-row class="px-5" align="center" justify="space-between">
+         <span class="display-1">{{ billet.title }}</span>
+         <span class="caption">{{ billet.date_create }}</span>
+       </v-row>
+      </v-card-title>
     </v-img>
     <v-card-text>
       <div>

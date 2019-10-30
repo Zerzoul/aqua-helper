@@ -21,9 +21,8 @@ export const getters = {
         const comment = state.comments.filter(comment =>{
             if(comment.postId === id){
                 return true;
-            };
+            }
         });
-        console.log(state);
         return comment;
     }
 }

@@ -29,6 +29,9 @@ export const actions = {
         .catch((err)=>{
           console.log('error', err);
         });
+    },
+    addComment({commit}, comment){
+      commit("addComment", comment);
     }
 
 }

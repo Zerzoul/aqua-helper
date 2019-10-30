@@ -5,6 +5,7 @@ export const mutations = {
     fetchBillets(state, data){
         state.billets = data;
     },
+    // Sort and store comments
     fetchComments(state, data){
         let comments = [];
         for(let i=0; data.length>i;i++){
@@ -28,5 +29,9 @@ export const mutations = {
             }
         }
         state.comments = comments;
+    },
+    addComment(state, comment){
+        console.log(comment);
+
     }
 }

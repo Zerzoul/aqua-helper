@@ -6,13 +6,22 @@
         <v-divider />
         <v-row justify="center" class="px-12">
           <v-col cols="9">
-            <content-article-comment v-for="(comment, index) in comments()" :key="index" :comment="comment" :depth="0"/>
+            <content-article-comment
+              v-for="(comment, index) in comments()"
+              :key="index"
+              :comment="comment"
+              :depth="0"
+              :postId="id"
+            />
           </v-col>
         </v-row>
         <v-divider />
         <v-row justify="center" class="px-12">
           <v-col cols="7">
-            <content-article-comment-form :postId="id" />
+            <v-row>
+              <v-card-title class="px-0">Laisser un commentaire ?</v-card-title>
+            </v-row>
+            <content-article-comment-form :postId="id" :answerPostId="null" />
           </v-col>
         </v-row>
       </v-card>
@@ -39,11 +48,10 @@ export default {
     getTheArticle() {
       const article = this.$store.getters.getSelectedBillet(this.id);
       return article;
-    },
-
+    }
   },
-  methods:{
-    comments(){
+  methods: {
+    comments() {
       const comments = this.$store.getters.getComment(this.id);
       return comments;
     }

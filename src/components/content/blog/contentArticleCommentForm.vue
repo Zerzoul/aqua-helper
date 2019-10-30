@@ -1,9 +1,6 @@
 <template>
   <div>
     <v-row>
-      <v-card-title class="px-0">Laisser un commentaire ?</v-card-title>
-    </v-row>
-    <v-row>
       <v-textarea solo clearable :counter="255" :error-messages="errorMessage" v-model="textField"></v-textarea>
     </v-row>
     <v-row>
@@ -18,7 +15,7 @@
 import axios from '../../../axios';
 export default {
   name: "ContentArticleCommentForm",
-  props: ["postId"],
+  props: ["postId", "answerPostId"],
   data: () => ({
     textField: null,
     errorMessage: [],
@@ -47,12 +44,13 @@ export default {
         url: "/newcom",
         data: {
           postId: this.postId,
-          answerPostId: null,
+          answerPostId: this.answerPostId,
           author: "zerzoul", // TODO replace by localsession storage.
           content: this.textField
         },
       }).then((response) => {
-           console.log(response);
+           console.log(response.data);
+           this.$store.dispatch("addComment", response.data);
         }).catch(err => {
           console.log("error", err);
         });
