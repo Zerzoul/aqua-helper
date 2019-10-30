@@ -5,8 +5,8 @@
         <content-article-billet :billet="getTheArticle" />
         <v-divider />
         <v-row justify="center" class="px-12">
-          <v-col cols-7>
-            <content-article-comment v-for="(comment, index) in comments()" :key="index" :comment="comment"/>
+          <v-col cols="9">
+            <content-article-comment v-for="(comment, index) in comments()" :key="index" :comment="comment" :depth="0"/>
           </v-col>
         </v-row>
         <v-divider />
@@ -39,12 +39,12 @@ export default {
     getTheArticle() {
       const article = this.$store.getters.getSelectedBillet(this.id);
       return article;
-    }
+    },
+
   },
   methods:{
     comments(){
       const comments = this.$store.getters.getComment(this.id);
-      console.log(comments.author);
       return comments;
     }
   }

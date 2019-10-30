@@ -18,13 +18,12 @@ export const getters = {
     },
     // Fetch all the comments who has been attached to the article id.
     getComment: (state) => (id) => {
-        let comments = [];
-        for(let i = 0; state.comments.length > i; i++ ){
-            const commentId = state.comments[i].post_id;
-            if(commentId === id){
-                comments.push(state.comments[i]);
-            }
-        }
-        return comments;
+        const comment = state.comments.filter(comment =>{
+            if(comment.postId === id){
+                return true;
+            };
+        });
+        console.log(state);
+        return comment;
     }
 }

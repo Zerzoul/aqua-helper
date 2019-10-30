@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{postId}}
     <v-row>
       <v-card-title class="px-0">Laisser un commentaire ?</v-card-title>
     </v-row>

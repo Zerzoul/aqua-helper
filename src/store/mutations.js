@@ -6,6 +6,27 @@ export const mutations = {
         state.billets = data;
     },
     fetchComments(state, data){
-        state.comments = data;
+        let comments = [];
+        for(let i=0; data.length>i;i++){
+            if(data[i].answer_comment_id === null){
+                const dataId = data[i].id;
+                let answers = [];
+                data.map(data=>{
+                    if(data.answer_comment_id === dataId){
+                        answers.push(data);
+                    }
+                });
+                const comment = {
+                    id: data[i].id,
+                    postId: data[i].post_id,
+                    author: data[i].author,
+                    content: data[i].content,
+                    date: data[i].date,
+                    answers: answers,
+                }
+                comments.push(comment);
+            }
+        }
+        state.comments = comments;
     }
 }
