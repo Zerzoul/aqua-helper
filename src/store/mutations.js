@@ -20,6 +20,7 @@ export const mutations = {
                 const comment = {
                     id: data[i].id,
                     postId: data[i].post_id,
+                    answerCommentId: data[i].answer_comment_id,
                     author: data[i].author,
                     content: data[i].content,
                     date: data[i].date,

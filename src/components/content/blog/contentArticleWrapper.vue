@@ -6,11 +6,10 @@
         <v-divider />
         <v-row justify="center" class="px-12">
           <v-col cols="9">
-            <content-article-comment
+            <content-article-comment-section
               v-for="(comment, index) in comments()"
               :key="index"
               :comment="comment"
-              :depth="0"
               :postId="id"
             />
           </v-col>
@@ -31,13 +30,13 @@
 
 <script>
 import ContentArticleBillet from "./contentArticleBillet";
-import ContentArticleComment from "./contentArticleComment";
+import ContentArticleCommentSection from "./contentArticleCommentSection";
 import ContentArticleCommentForm from "./contentArticleCommentForm";
 export default {
   name: "ContentArticleWrapper",
   components: {
     ContentArticleBillet,
-    ContentArticleComment,
+    ContentArticleCommentSection,
     ContentArticleCommentForm
   },
   props: ["id"],
