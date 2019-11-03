@@ -1,13 +1,15 @@
 <template>
   <div>
     <v-card :class="`ml-${depth}`" class="mb-5">
-      <v-card-title>{{comment.author}}</v-card-title>
-      <v-card-text>{{comment.content}}</v-card-text>
-      <v-card-text>{{comment.date}}</v-card-text>
+      <v-row class="px-7" align="center" justify="space-between">
+        <v-card-title class="pa-0">{{comment.author}}</v-card-title>
+        <span>{{comment.date}}</span>
+      </v-row>
+      <v-card-text class="pb-2">{{comment.content}}</v-card-text>
 
       <v-card-actions v-if="comment.answerCommentId === null">
-        <v-btn @click="answerToThisComment()" v-if="!answer">Répondre</v-btn>
-        <v-btn @click="closeThisAnswer()" v-else>
+        <v-btn @click="answerToThisComment()" v-if="!displayAnswer">Répondre</v-btn>
+        <v-btn @click="closeThisAnswer()" v-else icon>
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-actions>
@@ -27,10 +29,7 @@
 <script>
 export default {
   name: "contentArticleCommentBlock",
-  props: ["comment", "depth", "postId", "closeAll"],
-  data: () => ({
-    answer: false,
-  }),
+  props: ["comment", "depth", "postId", "closeAll", "displayAnswer"],
   methods: {
     answerToThisComment(e) {
       console.log("answer", e);
@@ -38,7 +37,7 @@ export default {
       if (!this.answer) {
         this.answer = true;
         this.$emit("eventComment", {
-          answer: this.answer,
+          answer: this.displayAnswer,
           getCommentId: getCommentId
         });
       }
@@ -57,8 +56,8 @@ export default {
           : this.comment.answer_comment_id;
       return commentId;
     },
-    eventComment(val){
-        this.$emit("eventComment", val);
+    eventComment(val) {
+      this.$emit("eventComment", val);
     }
   }
 };

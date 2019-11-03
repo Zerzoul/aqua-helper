@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img class="white--text align-end" height="370px" :src="getImage">
+    <v-img class="white--text align-end" height="370px" :src="getImage" :min-width="`${100}%`">
       <v-card-title class="accent" >
        <v-row class="px-5" align="center" justify="space-between">
          <span class="display-1">{{ billet.title }}</span>

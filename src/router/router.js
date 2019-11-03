@@ -4,27 +4,33 @@ import VueRouter from 'vue-router'
 import blog from '../components/content/blog/contentBlog.vue'
 import article from '../components/content/blog/contentArticleWrapper.vue'
 import aquaFish from '../components/content/aquaFish/aquaFishWrapper.vue'
+import connexion from '../components/content/authentification/authentificationWrapper.vue'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
-    mode: 'history',
-    routes:[
-        {
-            path: "/",
-            name: "billets",
-            component: blog,
-        },
-        {
-            path: "/blog/:id",
-            name: "article",
-            props: true,
-            component: article,
-        },
-        {
-            path: "/aquafish",
-            name: "aquaFish",
-            component: aquaFish,
-        },
-    ]
-})
+  mode: "history",
+  routes: [
+    {
+      path: "/",
+      name: "billets",
+      component: blog
+    },
+    {
+      path: "/blog/:id",
+      name: "article",
+      props: true,
+      component: article
+    },
+    {
+      path: "/aquafish",
+      name: "aquaFish",
+      component: aquaFish
+    },
+    {
+      path: "/connexion",
+      name: "connexion",
+      component: connexion
+    }
+  ]
+});

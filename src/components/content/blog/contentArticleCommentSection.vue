@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <content-article-comment-block :comment="comment" :depth="0" @eventComment="eventComment" />
+      <content-article-comment-block :comment="comment" :depth="0" :answer="displayAnswer" @eventComment="eventComment" />
     </div>
     <div>
       <v-expansion-panels v-if="displayAnswer" v-model="value">
@@ -10,7 +10,7 @@
             <v-col cols="7">
               <v-expansion-panel-content>
                 <v-card-title class="px-0">Répondre ?</v-card-title>
-                <content-article-comment-form :postId="postId" :answerPostId="getCommentId" />
+                <content-article-comment-form :postId="postId" :answerCommentId="getCommentId" @closeCommentPanel="eventComment"/>
               </v-expansion-panel-content>
             </v-col>
           </v-row>
@@ -48,7 +48,7 @@ export default {
         this.displayAnswer = false;
         this.getCommentId = null;
       }
-    }
+    },
   }
 };
 </script>

@@ -1,0 +1,31 @@
+<template>
+  <div>
+    <v-row justify="center">
+      <v-col md="5" sm="10" class="pa-0">
+        <v-card>
+          <v-col class="py-5">
+            <authentification-connexion />
+            <v-card-actions>
+              <router-link tag="button" :to="'/registration'">
+                <v-btn>Créer un compte</v-btn>
+              </router-link>
+            </v-card-actions>
+          </v-col>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
+</template>
+
+<script>
+import AuthentificationConnexion from "./authentificationConnexion.vue";
+export default {
+  name: "AuthentificationWrapper",
+  components: {
+    AuthentificationConnexion
+  }
+};
+</script>
+
+<style>
+</style>

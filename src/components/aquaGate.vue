@@ -1,25 +1,19 @@
 <template>
-  <v-container fluid pa-0 background>
+  <v-container fluid pa-0 background class="block-wrapper">
     <v-row>
       <header-navigation />
     </v-row>
-    <v-row>
-      <header-slider />
-    </v-row>
-    <v-container :fluid="removesViewport" class="px-1">
         <router-view v-if="itemHasBeenLoaded" />
-    </v-container>
   </v-container>
 </template>
 
 <script>
 import HeaderNavigation from "./template/headerNavigation";
-import HeaderSlider from "./slider/headerSlider";
 export default {
   name: "aquagate",
   components: {
     HeaderNavigation,
-    HeaderSlider
+
   },
   data: () => ({
     itemHasBeenLoaded: false
@@ -60,5 +54,8 @@ li {
   list-style-type: none;
   color: #fff;
   font-weight: 500;
+}
+.block-wrapper{
+  min-height: 100%;
 }
 </style>

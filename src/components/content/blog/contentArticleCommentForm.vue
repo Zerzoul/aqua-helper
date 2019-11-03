@@ -15,7 +15,7 @@
 import axios from '../../../axios';
 export default {
   name: "ContentArticleCommentForm",
-  props: ["postId", "answerPostId"],
+  props: ["postId", "answerCommentId"],
   data: () => ({
     textField: null,
     errorMessage: [],
@@ -44,13 +44,13 @@ export default {
         url: "/newcom",
         data: {
           postId: this.postId,
-          answerPostId: this.answerPostId,
-          author: "zerzoul", // TODO replace by localsession storage.
+          answerCommentId: this.answerCommentId,
+          author: this.$store.state.token, // TODO replace by localsession storage.
           content: this.textField
         },
-      }).then((response) => {
-           console.log(response.data);
-           this.$store.dispatch("addComment", response.data);
+      }).then(async (response) => {
+          await this.$store.dispatch("addComment", response.data);
+          this.$emit('closeCommentPanel', {answer: false,});
         }).catch(err => {
           console.log("error", err);
         });

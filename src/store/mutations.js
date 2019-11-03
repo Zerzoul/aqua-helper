@@ -31,8 +31,17 @@ export const mutations = {
         }
         state.comments = comments;
     },
-    addComment(state, comment){
+    async addComment(state, comment){
         console.log(comment);
-
+        if(comment.answerCommentId !== null){
+            console.log('answer comment');
+            for(let i=0; state.comments.length > i; i++){
+                if(state.comments[i].id === comment.answerCommentId){
+                   await state.comments[i].answers.push(comment);
+                }
+            }
+        } else {
+            await state.comments.push(comment);
+        }
     }
 }
