@@ -10,7 +10,6 @@ export default {
     computed:{
         getUrl(){
             const url = this.$store.state.url_image;
-            console.log(this.image);
             return url + this.image;
         }
     }

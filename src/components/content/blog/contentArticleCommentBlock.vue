@@ -30,21 +30,24 @@
 export default {
   name: "contentArticleCommentBlock",
   props: ["comment", "depth", "postId", "closeAll", "displayAnswer"],
-
+  data: () => ({
+    answer: false,
+  }),
   methods: {
     answerToThisComment(e) {
+      console.log("this.answer", this.answer);
       const getCommentId = this.getCommentId();
-      if (!this.answer) {
+      if (!this.displayAnswer) {
         this.answer = true;
         this.$emit("eventComment", {
-          answer: this.displayAnswer,
+          answer: this.answer,
           getCommentId: getCommentId
         });
       }
     },
     closeThisAnswer(e) {
       console.log("close", e);
-      if (this.answer) {
+      if (this.displayAnswer) {
         this.answer = false;
         this.$emit("eventComment", this.answer);
       }

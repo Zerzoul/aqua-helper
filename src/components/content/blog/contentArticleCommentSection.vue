@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <content-article-comment-block :comment="comment" :depth="0" :answer="displayAnswer" @eventComment="eventComment" />
+      <content-article-comment-block :comment="comment" :depth="0" :displayAnswer="displayAnswer" @eventComment="eventComment" />
     </div>
     <div>
       <v-expansion-panels v-if="displayAnswer" v-model="value">

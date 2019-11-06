@@ -4,7 +4,6 @@ export const actions = {
         async fetchFishes({commit}){
             await axios.get('/fishlist')
             .then(async (response)=>{
-              console.log('fishlist', response.data);
             await commit('fetchFishes', response.data);
             })
             .catch((err)=>{
@@ -14,7 +13,6 @@ export const actions = {
         async fetchBillets({commit}){
           await axios.get('/posts')
           .then(async (response)=>{
-            console.log('billets', response.data);
           await commit('fetchBillets', response.data);
           })
           .catch((err)=>{

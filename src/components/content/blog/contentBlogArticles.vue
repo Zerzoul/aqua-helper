@@ -14,7 +14,7 @@
       >
         <div :class="contentBilletWrapper">
           <div class="set-background-color">
-            <v-row align="space-between" class="px-10">
+            <v-row class="px-10">
               <v-card-title class="headline">{{billet.title}}</v-card-title>
               <v-card-text class="body-2">
                 <div>
@@ -23,7 +23,7 @@
               </v-card-text>
               <v-card-actions>
                 <router-link tag="button" :to="setTheUrl">
-                  <v-btn flat>Lire l'article</v-btn>
+                  <v-btn text>Lire l'article</v-btn>
                 </router-link>
               </v-card-actions>
             </v-row>
