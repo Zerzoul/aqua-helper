@@ -2,7 +2,7 @@
   <v-card
     flat
     dark
-    :height="responsiveContentBilletHeight"
+    :max-height="responsiveContentBilletHeight"
     min-width="100"
     class="my-5 d-flex flex-column justify-space-around"
   >
@@ -13,19 +13,21 @@
         :src="getImages"
       >
         <div :class="contentBilletWrapper">
-          <v-card-title class="headline">{{billet.title}}</v-card-title>
-          <v-card-text class="body-2">
-            <div>
-              <span v-html="billetContent"></span>
-            </div>
-          </v-card-text>
-          <v-card-actions>
-              <router-link tag="button" :to="setTheUrl">
-                <v-btn>
-                Lire l'article
-                </v-btn>
-              </router-link>
-          </v-card-actions>
+          <div class="set-background-color">
+            <v-row align="space-between" class="px-10">
+              <v-card-title class="headline">{{billet.title}}</v-card-title>
+              <v-card-text class="body-2">
+                <div>
+                  <span v-html="billetContent"></span>
+                </div>
+              </v-card-text>
+              <v-card-actions>
+                <router-link tag="button" :to="setTheUrl">
+                  <v-btn flat>Lire l'article</v-btn>
+                </router-link>
+              </v-card-actions>
+            </v-row>
+          </div>
         </div>
       </v-img>
     </template>
@@ -50,7 +52,7 @@ export default {
       return "blog/" + this.billet.id;
     },
     getImages() {
-      if(this.billet.file_id){
+      if (this.billet.file_id) {
         const url = this.$store.state.url_image;
         return url + this.billet.file_id;
       }
@@ -63,7 +65,7 @@ export default {
     responsiveContentBilletHeight() {
       return this.$vuetify.breakpoint.xsOnly ? 100 : 250;
     }
-  },
+  }
 };
 </script>
 
@@ -71,11 +73,13 @@ export default {
 .content-billet-wrapper {
   display: block;
   width: 50%;
-  height: 100%;
+  height: 250px;
+  background-color: rgba(38, 50, 56, 0.5);
 }
 .content-billet-wrapper-phone {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 100px;
+  background-color: rgba(38, 50, 56, 0.5);
 }
 </style>

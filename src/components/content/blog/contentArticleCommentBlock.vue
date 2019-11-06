@@ -30,6 +30,7 @@
 export default {
   name: "contentArticleCommentBlock",
   props: ["comment", "depth", "postId", "closeAll", "displayAnswer"],
+
   methods: {
     answerToThisComment(e) {
       const getCommentId = this.getCommentId();
