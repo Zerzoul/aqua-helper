@@ -2,7 +2,7 @@
 <v-carousel
     hide-delimiters
     cycle
-    :interval="2000"
+    :interval="5000"
     :height="carouselHeightSizeParams">
     <header-slider-item 
     v-for="(image, index) in getImages()"

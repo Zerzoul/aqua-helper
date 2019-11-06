@@ -24,6 +24,38 @@
       />
       <v-btn :disabled="!valid" color="success" @click="connexion" class="my-2">connection</v-btn>
     </v-form>
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title
+          class="headline grey lighten-2"
+          primary-title
+        >
+          Impossible de vous connecter.
+        </v-card-title>
+
+        <v-card-text>
+          Une erreur est survenue.
+          Veuillez réessayer plus tard.
+          Excusez-nous des désagréments.
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="dialog = false"
+          >
+            Réessayer
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -32,6 +64,7 @@ import axios from '../../../axios';
 export default {
   name: "AuthentificationConnexion",
   data: () => ({
+    dialog: false,
     valid: true,
     email: "",
     password: "",
@@ -41,10 +74,9 @@ export default {
     },
     connexionInvalide: ""
   }),
-  computed: {
-  },
   methods: {
-    async connexion() {
+    async connexion(e) {
+      e.preventDefault();
       await axios({
         method: "POST",
         url: "/authentification",
@@ -53,12 +85,23 @@ export default {
           password: this.password,
         },
       }).then(async (response) => {
-          console.log(response.data);
-          // this.connexionInvalide = err.data;
+          if(response.data.error){
+            this.connexionInvalide = response.data.error;
+          } else {
+            await this.$store.dispatch("setSessionStorage", response.data.pseudo);
+            this.redirect();
+          }
         }).catch(err => {
           console.log("error", err.data.data);
+          this.dialog = true;
           // this.connexionInvalide = err.data;
         });
+    },
+    redirect(){
+      const auth = this.$store.getters.isAuthenticated;
+      if(auth){
+        this.$router.push({ name: 'profile',  redirect: '/profile'});
+      }
     }
   }
 };

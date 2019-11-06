@@ -5,7 +5,7 @@
         <header-slider />
       </v-row>
     </v-container>
-    <v-container :fluid="removesViewport">
+    <v-container fluid>
       <v-row justify="center">
         <v-col md="10">
           <content-blog-articles

@@ -24,5 +24,9 @@ export const getters = {
             }
         });
         return comment;
+    },
+    // return if the user is connected or not
+    isAuthenticated(state){
+        return state.token !== null ? true : false;
     }
 }

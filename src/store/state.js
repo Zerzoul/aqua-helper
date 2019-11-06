@@ -3,5 +3,5 @@ export const state = {
         fishesListe: [],
         billets:[],
         comments:[],
-        token: sessionStorage.getItem, 
+        token: null, 
 }

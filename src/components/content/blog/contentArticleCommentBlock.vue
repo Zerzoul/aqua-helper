@@ -32,7 +32,6 @@ export default {
   props: ["comment", "depth", "postId", "closeAll", "displayAnswer"],
   methods: {
     answerToThisComment(e) {
-      console.log("answer", e);
       const getCommentId = this.getCommentId();
       if (!this.answer) {
         this.answer = true;

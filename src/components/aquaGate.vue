@@ -22,6 +22,7 @@ export default {
     await this.fetchFishes();
     await this.fetchBillets();
     await this.fetchComments();
+    await this.isStillConnected();
     this.itemHasBeenLoaded = true;
   },
   methods: {
@@ -33,6 +34,9 @@ export default {
     },
     fetchComments(){
       this.$store.dispatch("fetchComments");
+    },
+    isStillConnected(){
+      this.$store.dispatch("stillConnected");
     }
   },
   computed: {

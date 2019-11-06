@@ -32,9 +32,7 @@ export const mutations = {
         state.comments = comments;
     },
     async addComment(state, comment){
-        console.log(comment);
         if(comment.answerCommentId !== null){
-            console.log('answer comment');
             for(let i=0; state.comments.length > i; i++){
                 if(state.comments[i].id === comment.answerCommentId){
                    await state.comments[i].answers.push(comment);
@@ -43,5 +41,15 @@ export const mutations = {
         } else {
             await state.comments.push(comment);
         }
+    },
+    async setSessionStorage(state, pseudo){
+        await sessionStorage.setItem('pseudo', pseudo);
+    },
+    isItConnected(state){
+        state.token = sessionStorage.getItem("pseudo") ? sessionStorage.getItem("pseudo") : null;
+        console.log('am I connected', state.token)
+    },
+    async logOut(state){
+        await sessionStorage.removeItem('pseudo');
     }
 }

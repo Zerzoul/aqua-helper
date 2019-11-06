@@ -32,6 +32,18 @@ export const actions = {
     },
     addComment({commit}, comment){
       commit("addComment", comment);
+    },
+    setSessionStorage({commit}, pseudo){
+      commit("setSessionStorage", pseudo);
+      commit("isItConnected");
+    },
+    stillConnected({commit}){
+      commit("isItConnected");
+    },
+    logOut({commit}){
+      commit("logOut");
+      commit("isItConnected");
     }
+
 
 }
