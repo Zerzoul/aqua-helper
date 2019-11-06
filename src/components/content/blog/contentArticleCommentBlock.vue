@@ -7,12 +7,15 @@
       </v-row>
       <v-card-text class="pb-2">{{comment.content}}</v-card-text>
 
+    <template v-if="canWeAnswer">
       <v-card-actions v-if="comment.answerCommentId === null">
         <v-btn @click="answerToThisComment()" v-if="!displayAnswer">Répondre</v-btn>
         <v-btn @click="closeThisAnswer()" v-else icon>
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-actions>
+
+    </template>
     </v-card>
     <div>
       <content-article-comment-block
@@ -33,6 +36,11 @@ export default {
   data: () => ({
     answer: false,
   }),
+    computed:{
+    canWeAnswer(){
+      return this.$store.getters.isAuthenticated;
+    }
+  },
   methods: {
     answerToThisComment(e) {
       console.log("this.answer", this.answer);

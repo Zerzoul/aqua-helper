@@ -18,10 +18,19 @@
           <v-divider />
           <v-row justify="center" class="px-12">
             <v-col sm="10">
-              <v-row>
-                <v-card-title class="px-0">Laisser un commentaire ?</v-card-title>
-              </v-row>
-              <content-article-comment-form :postId="id" :answerCommentId="null" />
+              <template v-if="canWeAnswer">
+                <v-row>
+                  <v-card-title class="px-0">Laisser un commentaire ?</v-card-title>
+                </v-row>
+                <content-article-comment-form :postId="id" :answerCommentId="null" />
+              </template>
+              <template v-else>
+                <v-row>
+                  <span class="px-0">Veuillez vous connecter pour laisser un commentaire.
+                    <router-link tag="button" to="/connexion"> Se connecter !</router-link>
+                  </span>
+                </v-row>
+              </template>
             </v-col>
           </v-row>
         </v-card>
@@ -54,6 +63,9 @@ export default {
       const comments = this.$store.getters.getComment(this.id);
       return comments;
     },
+    canWeAnswer() {
+      return this.$store.getters.isAuthenticated;
+    }
   }
 };
 </script>
