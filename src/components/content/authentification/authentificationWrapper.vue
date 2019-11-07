@@ -5,7 +5,7 @@
         <v-card>
           <v-col class="py-5">
             <authentification-connexion />
-            <v-card-actions>
+            <v-card-actions class="pa-0">
               <router-link tag="button" :to="'/registration'">
                 <v-btn>Créer un compte</v-btn>
               </router-link>
@@ -23,7 +23,7 @@ export default {
   name: "AuthentificationWrapper",
   components: {
     AuthentificationConnexion
-  }
+  },
 };
 </script>
 

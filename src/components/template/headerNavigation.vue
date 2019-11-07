@@ -28,6 +28,7 @@ export default {
   methods:{
     async logOut(){
       await this.$store.dispatch('logOut');
+      document.location.href="/connexion";
     }
   }
 

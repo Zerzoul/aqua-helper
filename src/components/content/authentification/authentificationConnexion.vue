@@ -69,7 +69,7 @@ export default {
     email: "",
     password: "",
     rules: {
-      required: val => !!val || "Champ requis",
+      required: val => !!val || "Champs requis",
       email: val => /.+@.+\..+/.test(val) || "L'adresse mail doit être valide"
     },
     connexionInvalide: ""
@@ -100,7 +100,7 @@ export default {
     redirect(){
       const auth = this.$store.getters.isAuthenticated;
       if(auth){
-        this.$router.push({ name: 'profile',  redirect: '/profile'});
+        document.location.href="/"
       }
     }
   }
