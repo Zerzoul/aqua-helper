@@ -2,7 +2,7 @@
   <div>
     <v-bottom-sheet v-model="sheet" persistent>
       <v-sheet height="150" class="text-center py-5">
-          <v-btn @click="event" color="success" class="mb-2">{{ actionBtn }}</v-btn>
+          <v-btn @click="event" :color="btnStyle" class="mb-2">{{ actionBtn }}</v-btn>
           <div class="subtitle-1">{{ message }}</div>
       </v-sheet>
     </v-bottom-sheet>
@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-  props: ["actionBtn", "message"],
+  props: ["actionBtn", "message", "btnStyle"],
   data: () => ({
     sheet: true
   }),

@@ -56,15 +56,22 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <bottom-sheet-component v-if="errorConnection" :btnStyle="'error'" :message="errorMessage" :actionBtn="'Terminer'" @event="closeDialog"/>
+<bottom-sheet-component v-if="successConnection" :btnStyle="'success'" :message="successMessage" :actionBtn="'Continuer'" @event="redirect"/>
   </div>
 </template>
 
 <script>
 import axios from '../../../axios';
+import BottomSheetComponent from './../../tools/bottomSheetComponent';
 export default {
   name: "AuthentificationConnexion",
+    components:{
+    BottomSheetComponent,
+  },
   data: () => ({
-    dialog: false,
+    errorConnection: false,
+    successConnection: false,
     valid: true,
     email: "",
     password: "",
@@ -72,7 +79,9 @@ export default {
       required: val => !!val || "Champs requis",
       email: val => /.+@.+\..+/.test(val) || "L'adresse mail doit être valide"
     },
-    connexionInvalide: ""
+    connexionInvalide: "",
+    errorMessage: "Une erreur est survenue. Veuillez réessayer plus tard. Excusez-nous des problèmes occasionnés.",
+    successMessage: "Voues êtes connecté. Vous allez être maintenant redirigé vers le blog.",
   }),
   methods: {
     async connexion(e) {
@@ -89,19 +98,22 @@ export default {
             this.connexionInvalide = response.data.error;
           } else {
             await this.$store.dispatch("setSessionStorage", response.data.pseudo);
-            this.redirect();
+            this.successConnection = true;
           }
         }).catch(err => {
           console.log("error", err.data.data);
           this.dialog = true;
-          // this.connexionInvalide = err.data;
         });
     },
     redirect(){
       const auth = this.$store.getters.isAuthenticated;
       if(auth){
-        document.location.href="/"
+        document.location.href="/";
+        this.successConnection = false;
       }
+    },
+    closeDialog(){
+      this.errorConnection = false;
     }
   }
 };
