@@ -4,7 +4,7 @@
     <v-row>
       <v-col class="pa-0">
         <v-card>
-          <v-card-title>Aqua Fish</v-card-title>
+          <v-card-title>Fiche poisson :</v-card-title>
           <v-row wrap class="px-1 ">
             <aqua-fish-thumbnail v-for="fish in getFishes" :key="fish.id" :fish="fish" @display-fish-fiche="getTheFish"/>
           </v-row>

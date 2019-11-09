@@ -27,12 +27,9 @@
 export default {
   name: "aquaFisheFish",
   props: ["fish"],
-  data: () => ({
-    url: "http://localhost:80/admin-system/api/image_entity/"
-  }),
   computed: {
     imageFish() {
-      return `${this.url}${this.fish.file_id}`;
+      return `${this.$store.state.url_image}${this.fish.file_id}`;
     }
   },
   methods: {

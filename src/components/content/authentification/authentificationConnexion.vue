@@ -24,38 +24,6 @@
       />
       <v-btn :disabled="!valid" color="success" @click="connexion" class="my-2">connection</v-btn>
     </v-form>
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
-      <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
-          Impossible de vous connecter.
-        </v-card-title>
-
-        <v-card-text>
-          Une erreur est survenue.
-          Veuillez réessayer plus tard.
-          Excusez-nous des désagréments.
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
-          >
-            Réessayer
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
     <bottom-sheet-component v-if="errorConnection" :btnStyle="'error'" :message="errorMessage" :actionBtn="'Terminer'" @event="closeDialog"/>
 <bottom-sheet-component v-if="successConnection" :btnStyle="'success'" :message="successMessage" :actionBtn="'Continuer'" @event="redirect"/>
   </div>
