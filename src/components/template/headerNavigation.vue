@@ -1,39 +1,35 @@
 <template>
-  <v-app-bar class="px-5 accent" dark>
-    <v-container>
-      <v-row justify="space-between" align="center">
-        <v-col cols="2" class="pa-1">
-          <img src="./../../assets/logo-aqua-helper.png" />
-        </v-col>
+ <v-col :class="[{'d-flex flex-wrap justify-end' : isDesktop}, 'accent']">
+    <router-link tag="li" to="/aqua-helper/" class="header-link">
+      <v-btn text class="white--text">Blog</v-btn>
+    </router-link>
 
-        <v-col cols="10" class="d-flex justify-end">
-          <v-btn text>
-            <router-link tag="li" to="/aqua-helper/" class="header-link">Blog</router-link>
-          </v-btn>
-          <v-btn text>
-            <router-link tag="li" to="/aqua-helper/aquafish" class="header-link">AquaFish</router-link>
-          </v-btn>
-          <v-btn text>
-            <router-link v-if="!isConnected" tag="li" to="/aqua-helper/connexion" class="header-link">Connexion</router-link>
-            <span v-else tag="li" @click="logOut()" class="header-link">Deconnexion</span>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-app-bar>
+    <router-link tag="li" to="/aqua-helper/aquafish" class="header-link">
+      <v-btn text class="white--text">AquaFish</v-btn>
+    </router-link>
+
+    <router-link v-if="!isConnected" tag="li" to="/aqua-helper/connexion" class="header-link">
+      <v-btn text class="white--text">Connexion</v-btn>
+    </router-link>
+    <span v-else tag="li" @click="logOut()" class="header-link">
+      <v-btn text class="white--text">Deconnexion</v-btn>
+    </span>
+  </v-col>
 </template>
 <script>
 export default {
-  computed: {
-    isConnected() {
-      return this.$store.getters.isAuthenticated;
-    }
-  },
+  props:['isDesktop'],
   methods: {
     async logOut() {
       await this.$store.dispatch("logOut");
       document.location.href = "/aqua-helper/connexion";
     }
+  },
+  computed: {
+    isConnected() {
+      return this.$store.getters.isAuthenticated;
+    },
+
   }
 };
 </script>

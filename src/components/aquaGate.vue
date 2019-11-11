@@ -1,18 +1,18 @@
 <template>
   <v-container fluid pa-0 background class="block-wrapper">
     <v-row>
-      <header-navigation />
+      <header-navigation-wrapper />
     </v-row>
         <router-view v-if="itemHasBeenLoaded" />
   </v-container>
 </template>
 
 <script>
-import HeaderNavigation from "./template/headerNavigation";
+import HeaderNavigationWrapper from "./template/headerNavigationWrapper";
 export default {
   name: "aquagate",
   components: {
-    HeaderNavigation,
+    HeaderNavigationWrapper,
 
   },
   data: () => ({
