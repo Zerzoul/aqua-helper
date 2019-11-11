@@ -76,7 +76,7 @@ export default {
     redirect(){
       const auth = this.$store.getters.isAuthenticated;
       if(auth){
-        document.location.href="/";
+        document.location.href="/aqua-helper/";
         this.successConnection = false;
       }
     },

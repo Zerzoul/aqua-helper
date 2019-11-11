@@ -5,17 +5,7 @@
         <v-card>
           <content-article-billet :billet="getTheArticle" />
           <v-divider />
-          <v-row justify="center" class="px-3">
-            <v-col md="8" sm="12">
-              <content-article-comment-section
-                v-for="(comment, index) in comments"
-                :key="index"
-                :comment="comment"
-                :postId="id"
-              />
-            </v-col>
-          </v-row>
-          <v-divider />
+          <!-- Comment Form Section-->
           <v-row justify="center" class="px-12">
             <v-col sm="10">
               <template v-if="canWeAnswer">
@@ -27,10 +17,24 @@
               <template v-else>
                 <v-row>
                   <span class="px-0">Veuillez vous connecter pour laisser un commentaire.
-                    <router-link tag="button" to="/connexion"> Se connecter !</router-link>
+                    <router-link tag="button" to="/aqua-helper/connexion">
+                    <v-btn text>Se connecter !</v-btn>
+                    </router-link>
                   </span>
                 </v-row>
               </template>
+            </v-col>
+          </v-row>
+          <!-- Comment Section-->
+          <v-divider />
+          <v-row justify="center" class="px-3">
+            <v-col md="8" sm="12">
+              <content-article-comment-section
+                v-for="(comment, index) in comments"
+                :key="index"
+                :comment="comment"
+                :postId="id"
+              />
             </v-col>
           </v-row>
         </v-card>

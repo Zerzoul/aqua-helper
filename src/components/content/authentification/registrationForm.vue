@@ -110,7 +110,7 @@ export default {
     },
     redirectionAfterRegistrated(){
       if(this.hasBeenRegistrated){
-        document.location.href="/connexion";
+        document.location.href="/aqua-helper/connexion";
       }
     }
   }

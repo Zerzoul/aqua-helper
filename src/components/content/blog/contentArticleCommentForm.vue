@@ -5,7 +5,7 @@
     </v-row>
     <v-row>
       <div>
-        <v-btn v-on:click="validationForm()">Envoyé</v-btn>
+        <v-btn v-on:click="validationForm()">Envoyer</v-btn>
       </div>
     </v-row>
   </div>

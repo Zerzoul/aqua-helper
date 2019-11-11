@@ -7,28 +7,28 @@ import registration from '../components/content/authentification/registrationWra
 
 export const routes = [
          {
-           path: "/",
+           path: "/aqua-helper/",
            name: "billets",
            component: blog
          },
          {
-           path: "/blog/:id",
+           path: "/aqua-helper/blog/:id",
            name: "article",
            props: true,
            component: article
          },
          {
-           path: "/aquafish",
+           path: "/aqua-helper/aquafish",
            name: "aquaFish",
            component: aquaFish
          },
          {
-           path: "/connexion",
+           path: "/aqua-helper/connexion",
            name: "connexion",
            component: connexion
          },
          {
-           path: "/registration",
+           path: "/aqua-helper/registration",
            name: "registration",
            component: registration
          }

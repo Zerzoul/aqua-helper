@@ -5,7 +5,7 @@ module.exports = {
   devServer: {
     proxy: 'http://zerzoul.com/admin-system/' 
   },
-  // publicPath: process.env.NODE_ENV === 'production'
-  // ? '/aqua-helper/'
-  // : '/'
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/aqua-helper'
+  : '/'
 }

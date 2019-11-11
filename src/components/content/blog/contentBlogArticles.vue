@@ -49,7 +49,7 @@ export default {
       return subStr + "...";
     },
     setTheUrl() {
-      return "blog/" + this.billet.id;
+      return "/aqua-helper/blog/" + this.billet.id;
     },
     getImages() {
       if (this.billet.file_id) {

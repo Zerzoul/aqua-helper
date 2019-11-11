@@ -8,13 +8,13 @@
 
         <v-col cols="10" class="d-flex justify-end">
           <v-btn text>
-            <router-link tag="li" to="/" class="header-link">Blog</router-link>
+            <router-link tag="li" to="/aqua-helper/" class="header-link">Blog</router-link>
           </v-btn>
           <v-btn text>
-            <router-link tag="li" to="/aquafish" class="header-link">AquaFish</router-link>
+            <router-link tag="li" to="/aqua-helper/aquafish" class="header-link">AquaFish</router-link>
           </v-btn>
           <v-btn text>
-            <router-link v-if="!isConnected" tag="li" to="/connexion" class="header-link">Connexion</router-link>
+            <router-link v-if="!isConnected" tag="li" to="/aqua-helper/connexion" class="header-link">Connexion</router-link>
             <span v-else tag="li" @click="logOut()" class="header-link">Deconnexion</span>
           </v-btn>
         </v-col>
@@ -32,7 +32,7 @@ export default {
   methods: {
     async logOut() {
       await this.$store.dispatch("logOut");
-      document.location.href = "/connexion";
+      document.location.href = "/aqua-helper/connexion";
     }
   }
 };
