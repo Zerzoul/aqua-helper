@@ -62,4 +62,7 @@ li {
 .block-wrapper{
   min-height: 100%;
 }
+.full-height{
+  height: 100%;
+}
 </style>

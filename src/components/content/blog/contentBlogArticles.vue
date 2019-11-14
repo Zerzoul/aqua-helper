@@ -85,7 +85,5 @@ export default {
   height: 100px;
   background-color: rgba(38, 50, 56, 0.5);
 }
-.full-height{
-  height: 100%;
-}
+
 </style>

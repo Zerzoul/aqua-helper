@@ -1,14 +1,14 @@
 <template>
-  <v-dialog v-model="displayFicheFish" fullscreen>
-    <v-container fluid>
-      <v-card>
-        <v-row style="width: 100%;">
-          <v-col cols="8">
-            <v-img :src="imageFish" :height="`${100}%`" />
+  <v-dialog v-model="displayFicheFish">
+    <v-container fluid class="pa-0">
+      <v-card class="px-5">
+        <v-row class="ma-0">
+          <v-col lg="7" sm="12">
+            <v-img :src="imageFish" />
           </v-col>
-          <v-col cols="4" d-flex justify-center>
+          <v-col lg="5" sm="12">
             <v-row>
-              <v-col cols>
+              <v-col>
                 <v-card-title class="pa-0">{{fish.commun_name}}</v-card-title>
                 <v-card-title class="pa-0 font-italic body-2">{{fish.latin_name}}</v-card-title>
               </v-col>
@@ -47,7 +47,7 @@ export default {
   computed: {
     imageFish() {
       return `${this.$store.state.url_image}${this.fish.file_id}`;
-    }
+    },
   },
   methods: {
     closeDialog() {
@@ -57,4 +57,12 @@ export default {
 };
 </script>
 <style scoped>
+.size-wrapper-fiche{
+  width: 100%;
+  height: 100%;
+}
+.full-height-fish-fiche{
+  min-height: 100%;
+}
+
 </style>
