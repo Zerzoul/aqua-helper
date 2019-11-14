@@ -32,7 +32,7 @@ export default {
       }
       if (comment.length > 255) {
         this.errorMessage.push(
-          "Votre commentaire est trop long. il doit être de moins de 255 caratcère."
+          "Votre commentaire est trop long. il doit être de moins de 255 caratcères."
         );
         return;
       }

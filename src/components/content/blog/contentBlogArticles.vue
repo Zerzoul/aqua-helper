@@ -2,19 +2,19 @@
   <v-card
     flat
     dark
-    :max-height="responsiveContentBilletHeight"
+    :height="`${responsiveContentBilletHeight}%`"
     min-width="100"
     class="my-5 d-flex flex-column justify-space-around"
   >
     <template>
       <v-img
         class="white--text align-center"
-        :height="responsiveContentBilletHeight"
+        :height="responsiveContentImageHeight"
         :src="getImages"
       >
         <div :class="contentBilletWrapper">
-          <div class="set-background-color">
-            <v-row class="px-10">
+          <div class="set-background-color full-height">
+            <v-row class="px-10 full-height" >
               <v-card-title class="headline">{{billet.title}}</v-card-title>
               <v-card-text class="body-2">
                 <div>
@@ -63,6 +63,9 @@ export default {
         : "content-billet-wrapper";
     },
     responsiveContentBilletHeight() {
+      return this.$vuetify.breakpoint.xsOnly ? 38 : 250;
+    },
+        responsiveContentImageHeight() {
       return this.$vuetify.breakpoint.xsOnly ? 100 : 250;
     }
   }
@@ -81,5 +84,8 @@ export default {
   width: 100%;
   height: 100px;
   background-color: rgba(38, 50, 56, 0.5);
+}
+.full-height{
+  height: 100%;
 }
 </style>
