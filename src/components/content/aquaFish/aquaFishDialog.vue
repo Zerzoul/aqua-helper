@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="displayFicheFish">
-    <v-container fluid class="pa-0">
+  <v-dialog v-model="displayFicheFish" class="ma-0">
+    <v-container fluid >
       <v-card class="px-5">
         <v-row class="ma-0">
           <v-col lg="7" sm="12">
@@ -64,5 +64,8 @@ export default {
 .full-height-fish-fiche{
   min-height: 100%;
 }
-
+.v-dialog{
+  box-shadow: none !important;
+  margin: 0 !important;
+}
 </style>

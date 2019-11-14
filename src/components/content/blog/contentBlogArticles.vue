@@ -6,15 +6,15 @@
     min-width="100"
     class="my-5 d-flex flex-column justify-space-around"
   >
-    <template>
+
       <v-img
         class="white--text align-center"
-        :height="responsiveContentImageHeight"
+        :height="`${responsiveContentBilletHeight}%`"
         :src="getImages"
       >
         <div :class="contentBilletWrapper">
           <div class="set-background-color full-height">
-            <v-row class="px-10 full-height" >
+            <v-row class="px-5 full-height" >
               <v-card-title class="headline">{{billet.title}}</v-card-title>
               <v-card-text class="body-2">
                 <div>
@@ -30,7 +30,7 @@
           </div>
         </div>
       </v-img>
-    </template>
+
   </v-card>
 </template>
 
@@ -63,7 +63,7 @@ export default {
         : "content-billet-wrapper";
     },
     responsiveContentBilletHeight() {
-      return this.$vuetify.breakpoint.xsOnly ? 38 : 250;
+      return this.$vuetify.breakpoint.xsOnly ? 68 : 20;
     },
         responsiveContentImageHeight() {
       return this.$vuetify.breakpoint.xsOnly ? 100 : 250;
@@ -76,13 +76,13 @@ export default {
 .content-billet-wrapper {
   display: block;
   width: 50%;
-  height: 250px;
+  height: 100%;
   background-color: rgba(38, 50, 56, 0.5);
 }
 .content-billet-wrapper-phone {
   display: block;
   width: 100%;
-  height: 100px;
+  height: 100%;
   background-color: rgba(38, 50, 56, 0.5);
 }
 

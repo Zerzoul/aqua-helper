@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'http://localhost:8080/admin-system/api',
+    baseURL: 'http://zerzoul.com/admin-system/api',
     timeout: 10000,
   });
